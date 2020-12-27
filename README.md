@@ -1,1 +1,0 @@
-skull_stripping
