@@ -2,14 +2,19 @@
 
 
 
-## Toy Multi agent environment
+## Skull stripping blend of SOTA models : 
 
 <p align="center">
   <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example0.gif?raw=true" alt="example0">
 </p>
-Start of a toy gym environment bank for multi-agent reinforcement learning.
 
-This repo contains for the moment a first environment:
+<p align="center">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example1.gif?raw=true" alt="example1">
+</p>
+
+<p align="center">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example2.gif?raw=true" alt="example2">
+</p>
 
 ### How to install ?
 ```
