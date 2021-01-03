@@ -5,7 +5,7 @@
 ## Toy Multi agent environment
 
 <p align="center">
-  <img height="440px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example0.gif?raw=true" alt="example0">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example0.gif?raw=true" alt="example0">
 </p>
 Start of a toy gym environment bank for multi-agent reinforcement learning.
 
