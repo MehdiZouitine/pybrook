@@ -67,6 +67,7 @@ class Blender:
 
     def __call__(self, x):
         H, W = x.shape
+        x = x / x.max()
         x = torch.tensor(x, dtype=torch.float32).unsqueeze(0).unsqueeze(0)
         mask = torch.ones_like(x)
         for model in self.models:

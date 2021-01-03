@@ -126,4 +126,4 @@ NFBS_Dataset/*
 *.png
 *.pth  
 *.json
-*.gz
+*tar.gz
