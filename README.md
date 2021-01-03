@@ -1,5 +1,7 @@
 # PyBrook : A tool for skull strip MRI images
-
+<p align="center">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/pybrook_logo.jpg?raw=true" alt="example0">
+</p>
 
 
 ## Skull stripping blend of SOTA models : 
