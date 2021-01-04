@@ -31,7 +31,13 @@ And each model has a different encoder.
 
 MRI segmentation may require pre-processing and post-processing. Indeed, the variability between the measuring devices and the type of MRI can lead to a huge variability in the pixel distribution. This results in poor segmentation (artefacts, holes). So in some cases it is advisable to use this preprocessing.
 
+### Pre-processing
 
+Preprocessing consists of **histogram matching**. The idea is that a new MRI image can have a pixel distribution that is very different from the distribution of the training set. That's why the idea is to match the distribution of the new image to a reference image drawn in the training set.
+
+<p align="center">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/histo_matching.png?raw=true" alt="example_matching">
+</p>
 
 
 ## Skull stripping blend of SOTA models : 
