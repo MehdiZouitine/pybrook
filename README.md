@@ -21,6 +21,12 @@ In order to be able to train the model it was necessary to extract from the MRIs
 Our brain extractor is a set of several **Unet** models pre-trained on imagenet. Each model is trained with a **BCE with logit loss**.
 And each model has a different encoder.
 
+| Model | Encoder              | Pretrained data | Validation IOU |
+|-------|----------------------|-----------------|----------------|
+| Unet  | resnet18             | imagenet        | 0.95           |
+| Unet  | timm-efficientnet-b4 | imagenet        | 0.965          |
+| Unet  | timm-resnest50d      | imagenet        | 0.976          |
+
 
 ## Skull stripping blend of SOTA models : 
 
