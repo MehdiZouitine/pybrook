@@ -18,6 +18,9 @@ In order to be able to train the model it was necessary to extract from the MRIs
 
 ## Training
 
+Our brain extractor is a set of several **Unet** models pre-trained on imagenet. Each model is trained with a **BCE with logit loss**.
+And each model has a different encoder.
+
 
 ## Skull stripping blend of SOTA models : 
 
