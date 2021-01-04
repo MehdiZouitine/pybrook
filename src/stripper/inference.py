@@ -10,8 +10,8 @@ from skimage.exposure import match_histograms
 
 MODELPATH = [
     # "/home/mehdi.zouitine/skull_stripping/model/skull_stripper_timm-resnest50d_3D.pth",
-    "/home/mehdi.zouitine/skull_stripping/model/skull_stripper_timm-efficientnet-b4_3D.pth",
-    "/home/mehdi.zouitine/skull_stripping/model/skull_stripper_resnet18_3D.pth",
+    "../model/skull_stripper_timm-efficientnet-b4_3D.pth",
+    "../model/skull_stripper_resnet18_3D.pth",
 ]
 
 MODELS = [
