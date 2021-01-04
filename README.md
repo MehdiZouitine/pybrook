@@ -4,6 +4,7 @@
 </p>
 
 
+**Pybrook** is a python package designed for medical MRI preprocessing. Specifically Pybrook is designed to automatically extract the brain from MRI images. This package has a lack of (modern) tools to address this problem. By using several models (Resnet, Efficient net) Pybrook achieves an IOU score of **0.98**. 
 ## Skull stripping blend of SOTA models : 
 
 <p align="center">
