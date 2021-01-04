@@ -37,7 +37,7 @@ Preprocessing consists of **histogram matching**. The idea is that a new MRI ima
 
 
 <p align="center">
-  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/matchgraph.png?raw=true" alt="example_matching">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/matchgraph (1).png?raw=true" alt="example_matching">
 </p>
 
 <p align="center">
