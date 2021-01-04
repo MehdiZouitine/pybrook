@@ -15,7 +15,9 @@ The models are trained on the **Neurofeedback Skull-stripped (NFBS) repository**
 </p>
 
 In order to be able to train the model it was necessary to extract from the MRIs all possible slices of the brain: **Axial, coronal and sagittal**. By doing this, our model is **trained on 2D images** and not directly on the 3D MRI. The script **data_cleaning.py** ensures this processing.
-  
+
+## Training
+
 
 ## Skull stripping blend of SOTA models : 
 
