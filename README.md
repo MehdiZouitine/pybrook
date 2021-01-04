@@ -44,7 +44,7 @@ Preprocessing consists of **histogram matching**. The idea is that a new MRI ima
 Preprocessing consists of **histogram matching**. The idea is that a new MRI image can have a pixel distribution that is very different from the distribution of the training set. That's why the idea is to match the distribution of the new image to a reference image drawn in the training set.
 
 <p align="center">
-  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/histo_matching.png?raw=true" alt="example_matching">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/morphoskullstrip.png?raw=true" alt="morphological">
 </p>
 
 ## Skull stripping blend of SOTA models : 
