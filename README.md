@@ -49,7 +49,7 @@ Preprocessing consists of **histogram matching**. The idea is that a new MRI ima
 As said before, a different distribution can lead to many segmentation flaws. Two major defects: **Artifacts** and **holes**. To overcome this, **morphological operators** are applied on the binary image (the mask). Morphological operators are basic studies in the treatment of binary images and allow to ensure a lot of stain despite their simplicity.
 
 <p align="center">
-  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/matchgraph (2).png?raw=true" alt="morphological">
+  <img height="260px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/matchgraph (2).png?raw=true" alt="morphological">
 </p>
 
 ## Skull stripping blend of SOTA models : 
