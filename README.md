@@ -67,7 +67,8 @@ As said before, a different distribution can lead to many segmentation flaws. Tw
 
 ### How to install ?
 ```
-git clone
+git clone https://github.com/MehdiZouitine/pybrook
+cd pybrook
 pip install -e .
 ```
 
@@ -75,5 +76,18 @@ pip install -e .
 ### How to use it ?
 
 ```python
-print(issou)
+import nibabel as nib # IRM image package
+from stripper.inference import Brook
+
+mask_path = "../example/sub-A00028185_ses-NFB3_T1w_brainmask.nii.gz" # path to IRM ground truth
+data_path = "../example/sub-A00028185_ses-NFB3_T1w.nii.gz" # path to IRM data (skull + brain)
+
+data = nib.load(data_path).get_fdata() # Convert IRM format to numpy 3D tensor
+label = nib.load(mask_path).get_fdata() # Convert IRM format to numpy 3D tensor
+
+stripper = Brook() # Create an instance of brook
+
+example_slice = data[120,:,:] # Get on slice of tensor 
+
+brain,mask = stripper.strip(example_slice,pre_process=False,post_process=False) # Extract brain from the skull
 ```
