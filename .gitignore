@@ -124,6 +124,6 @@ dmypy.json
 .pyre/
 NFBS_Dataset/*
 *.png
-*.pth  
+
 *.json
 *tar.gz
