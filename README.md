@@ -8,9 +8,10 @@
 
 ## Data and training
 The models are trained on the **Neurofeedback Skull-stripped (NFBS) repository**.
+It's a tabase of 125 T1-weighted anatomical MRI scans that are manually skull-stripped. In addition to aiding in the processing and analysis of the NFB dataset, NFBS provides researchers with gold standard training and testing data for developing machine learning algorithms.
 
 <p align="center">
-  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/NFBS.png?raw=true" alt="example0">
+  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/NFBS.png?raw=true" alt="=NFBS
 </p>
 
 ## Skull stripping blend of SOTA models : 
