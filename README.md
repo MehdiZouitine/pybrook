@@ -27,6 +27,12 @@ And each model has a different encoder.
 | Unet  | timm-efficientnet-b4 | imagenet        | 0.965          | https://arxiv.org/pdf/1905.11946.pdf |
 | Unet  | timm-resnest50d      | imagenet        | 0.976          | https://arxiv.org/pdf/2004.08955.pdf |
 
+## Pre-processing and post processing
+
+MRI segmentation may require pre-processing and post-processing. Indeed, the variability between the measuring devices and the type of MRI can lead to a huge variability in the pixel distribution. This results in poor segmentation (artefacts, holes). So in some cases it is advisable to use this preprocessing.
+
+
+
 
 ## Skull stripping blend of SOTA models : 
 
