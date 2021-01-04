@@ -6,8 +6,6 @@ import glob
 from tqdm import tqdm
 from PIL import Image
 from collections import namedtuple
-import psutil
-import shutil
 
 
 LABEL_REGEX = "NFBS_Dataset/*/*brainmask*"
