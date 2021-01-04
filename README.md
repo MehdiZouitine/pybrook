@@ -41,7 +41,7 @@ Preprocessing consists of **histogram matching**. The idea is that a new MRI ima
 
 ### Post-processing
 
-Preprocessing consists of **histogram matching**. The idea is that a new MRI image can have a pixel distribution that is very different from the distribution of the training set. That's why the idea is to match the distribution of the new image to a reference image drawn in the training set.
+As said before, a different distribution can lead to many segmentation flaws. Two major defects: **Artifacts** and **holes**. To overcome this, **morphological operators** are applied on the binary image (the mask). Morphological operators are basic studies in the treatment of binary images and allow to ensure a lot of stain despite their simplicity.
 
 <p align="center">
   <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/morphoskullstrip.png?raw=true" alt="morphological">
