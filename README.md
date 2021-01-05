@@ -55,16 +55,19 @@ As said before, a different distribution can lead to many segmentation flaws. Tw
   <img height="260px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/matchgraph (2).png?raw=true" alt="morphological">
 </p>
 
-## Resulats: 
+## Results: 
 
+### Coronal slice
 <p align="center">
   <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example0.gif?raw=true" alt="example0">
 </p>
 
+### Axial slice
 <p align="center">
   <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example1.gif?raw=true" alt="example1">
 </p>
 
+### Sagitale slice
 <p align="center">
   <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example2.gif?raw=true" alt="example2">
 </p>
