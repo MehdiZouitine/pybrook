@@ -55,7 +55,7 @@ As said before, a different distribution can lead to many segmentation flaws. Tw
   <img height="260px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/matchgraph (2).png?raw=true" alt="morphological">
 </p>
 
-## Skull stripping blend of SOTA models : 
+## Resulats: 
 
 <p align="center">
   <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/example0.gif?raw=true" alt="example0">
