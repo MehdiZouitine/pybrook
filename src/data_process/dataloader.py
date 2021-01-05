@@ -18,17 +18,19 @@ class SkullDataset3D(Dataset):
 
         self.train = train
         self.visualize = visualize
+        # Train on the 100 first patients
         if train:
             self.img_path = glob.glob("../data/[0-9][0-9]/image/*")
             self.label_path = glob.glob("../data/[0-9][0-9]/label/*")
         else:
+            # Valid on the 25 last
             self.img_path = glob.glob("../data/[0-9][0-9][0-9]/image/*")
             self.label_path = glob.glob("../data/[0-9][0-9][0-9]/label/*")
 
     def __getitem__(self, idx: int):
         img = np.asarray(Image.open(self.img_path[idx])) / 255
         label = np.asarray(Image.open(self.label_path[idx])) / 255
-
+        # Image are in graysclate so we need to divide by 255 and x will be in [0,1].
         if self.visualize:
             _, axarr = plt.subplots(1, 2)
             axarr[0].imshow(img, cmap="gray")

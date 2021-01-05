@@ -3,8 +3,8 @@ import numpy as np
 import torch
 import matplotlib.pyplot as plt
 import glob
-from dataloader import SkullDataset3D
-from train import learn
+from data_process.dataloader import SkullDataset3D
+from stripper.train import learn
 from torch.utils.data import Dataset, DataLoader
 from torch.optim import Adam
 import torch.nn as nn

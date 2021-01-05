@@ -8,7 +8,24 @@ from tqdm import tqdm
 import segmentation_models_pytorch as smp
 
 
-def train(train_dataloader, model, loss_function, optimizer, device, scheduler=None):
+def train(
+    train_dataloader: torch.utils.data.dataloader,
+    model: nn.Module,
+    loss_function: nn.Module,
+    optimizer: torch.optim.Optimizer,
+    device: torch.device,
+    scheduler=None,
+):
+    """[Perfom one training epoch]
+
+    Args:
+        train_dataloader (torch.utils.data.dataloader): [Pytorch dataloader]
+        model (nn.Module): [Unet based model]
+        loss_function (nn.Module): []
+        optimizer (torch.optim.Optimizer): []
+        device (torch.device): [Training was done on multi GPU]
+        scheduler ([type], optional): [description]. Defaults to None.
+    """
     model.train()
 
     total_loss = 0
@@ -34,8 +51,29 @@ def train(train_dataloader, model, loss_function, optimizer, device, scheduler=N
         # scheduler.step()
 
 
-def evaluate(dataloader, model, loss_function, optimizer, device):
-    iou = smp.utils.metrics.IoU(threshold=0.5)
+def evaluate(
+    dataloader: torch.utils.data.dataloader,
+    model: nn.Module,
+    loss_function: nn.Module,
+    optimizer: torch.optim.Optimizer,
+    device: torch.device,
+):
+    """[Perform one evaluation step]
+
+    Args:
+        dataloader (torch.utils.data.dataloader): [Pytorch dataloader]
+        model (nn.Module): [Unet based model]
+        loss_function (nn.Module): []
+        optimizer (torch.optim.Optimizer): []
+        device (torch.device): []
+
+    Returns:
+        [tuple]: [Loss and metric over all the dataloader]
+    """
+
+    iou = smp.utils.metrics.IoU(
+        threshold=0.5
+    )  # Metric choosen is IOU, could be DICE or Logloss
     print("\nEvaluating...")
 
     model.eval()
@@ -80,7 +118,6 @@ def evaluate(dataloader, model, loss_function, optimizer, device):
     avg_loss = total_loss / len(dataloader)
     avg_metric = total_metric / len(dataloader)
 
-    # reshape the predictions in form of (number of samples, no. of classes)
     total_preds = np.concatenate(total_preds, axis=0)
     total_labels = np.concatenate(total_labels, axis=0)
     print("End evaluate")
@@ -89,15 +126,27 @@ def evaluate(dataloader, model, loss_function, optimizer, device):
 
 
 def learn(
-    train_dataloader,
-    val_dataloader,
-    model,
-    loss_function,
-    optimizer,
-    device,
-    epochs,
+    train_dataloader: torch.utils.data.dataloader,
+    val_dataloader: torch.utils.data.dataloader,
+    model: nn.Module,
+    loss_function: nn.Module,
+    optimizer: torch.optim.Optimizer,
+    device: torch.device,
+    epochs: int,
     scheduler=None,
 ):
+    """[Perform alternatively one step for training and one step on evaluation across multiple epochs]
+
+    Args:
+        train_dataloader (torch.utils.data.dataloader): [description]
+        val_dataloader (torch.utils.data.dataloader): [description]
+        model (nn.Module): [description]
+        loss_function (nn.Module): [description]
+        optimizer (torch.optim.Optimizer): [description]
+        device (torch.device): [description]
+        epochs (int): [description]
+        scheduler ([type], optional): [description]. Defaults to None.
+    """
     for epoch in tqdm(range(epochs)):
         start = time.time()
 
@@ -115,12 +164,6 @@ def learn(
             val_dataloader, model, loss_function, optimizer, device
         )
 
-        # res_train = np.argmax(train_pred, axis=1).tolist()
-        # res_val = np.argmax(val_pred, axis=1).tolist()
-
-        # f1_train = f1_score(train_lab, res_train, average="macro")
-        # f1_val = f1_score(val_lab, res_val, average="macro")
-
         # scheduler.step()
 
         print(f"\nTraining Loss: {train_loss:.3f} , training metric : {train_metric}")
@@ -128,4 +171,3 @@ def learn(
 
         now = time.time()
         print(f"Time for epoch {epoch} is {(now - start)/60} min")
-        #torch.save(model.module.state_dict(), "model/skull_stripper_timm-efficientnet-b4_3D.pth")
