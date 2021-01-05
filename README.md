@@ -99,4 +99,4 @@ example_slice = data[120,:,:] # Get on slice of tensor
 
 brain,mask = stripper.strip(example_slice,pre_process=False,post_process=False) # Extract brain from the skull
 ```
-**More about how to use it in src/how_to_use.py
+**More about how to use it in src/how_to_use.py**
