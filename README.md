@@ -28,7 +28,7 @@ And each model has a different encoder.
 | Unet  | timm-efficientnet-b4 | imagenet        | 0.976 ± 0.0263            | https://arxiv.org/pdf/2004.08955.pdf | yes       |
 
 <p align="center">
-  <img height="320px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/stack_model.png?raw=true" alt="stack">
+  <img height="500px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/stack_model.png?raw=true" alt="stack">
 </p>
 ## Pre-processing and post processing
 
