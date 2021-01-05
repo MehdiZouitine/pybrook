@@ -4,7 +4,7 @@
 </p>
 
 
-**Pybrook** is a python package designed for medical MRI preprocessing. Specifically Pybrook is designed to automatically extract the brain from MRI images. This package aims to fill the lack of (modern) tools to respond to this problem.By using several models (Resnet, Efficient net) Pybrook achieves an IOU score of **0.98**. 
+**Pybrook** is a python package designed for medical MRI preprocessing. Specifically Pybrook is designed to automatically extract the brain from MRI images. This package aims to fill the lack of (modern) tools to respond to this problem.By using several models (Resnet, Efficient net) Pybrook achieves an IOU score of **0.98** in cross-validation. 
 
 ## Data 
 The models are trained on the **Neurofeedback Skull-stripped (NFBS) repository**.
@@ -21,11 +21,11 @@ In order to be able to train the model it was necessary to extract from the MRIs
 Our brain extractor is a set of several **Unet** models pre-trained on imagenet. Each model is trained with a **BCE with logit loss**.
 And each model has a different encoder.
 
-| Model | Encoder              | Pretrained data | Validation IOU | Source                               | Available |
-|-------|----------------------|-----------------|----------------|--------------------------------------|-----------|
-| Unet  | resnet18             | imagenet        | 0.95           | https://arxiv.org/pdf/1512.03385.pdf | **yes**    |
-| Unet  | timm-resnest50d      | imagenet        | 0.965          | https://arxiv.org/pdf/1905.11946.pdf |  **no**         |
-| Unet  | timm-efficientnet-b4 | imagenet        | 0.976          | https://arxiv.org/pdf/2004.08955.pdf | **yes**   |
+| Model | Encoder              | Pretrained data | Cross-validation IOU | Source                               | Available |
+|-------|----------------------|-----------------|----------------------|--------------------------------------|-----------|
+| Unet  | resnet18             | imagenet        | 0.95                 | https://arxiv.org/pdf/1512.03385.pdf | yes       |
+| Unet  | timm-resnest50d      | imagenet        | 0.965                | https://arxiv.org/pdf/1905.11946.pdf | no        |
+| Unet  | timm-efficientnet-b4 | imagenet        | 0.976                | https://arxiv.org/pdf/2004.08955.pdf | yes       |
 ## Pre-processing and post processing
 
 MRI segmentation may require pre-processing and post-processing. Indeed, the variability between the measuring devices and the type of MRI can lead to a huge variability in the pixel distribution. This results in poor segmentation (artefacts, holes). So in some cases it is advisable to use this preprocessing.
@@ -67,7 +67,8 @@ As said before, a different distribution can lead to many segmentation flaws. Tw
 
 ### How to install ?
 ```
-git clone
+git clone https://github.com/MehdiZouitine/pybrook
+cd pybrook
 pip install -e .
 ```
 
@@ -75,5 +76,18 @@ pip install -e .
 ### How to use it ?
 
 ```python
-print(issou)
+import nibabel as nib # IRM image package
+from stripper.inference import Brook
+
+mask_path = "../example/sub-A00028185_ses-NFB3_T1w_brainmask.nii.gz" # path to IRM ground truth
+data_path = "../example/sub-A00028185_ses-NFB3_T1w.nii.gz" # path to IRM data (skull + brain)
+
+data = nib.load(data_path).get_fdata() # Convert IRM format to numpy 3D tensor
+label = nib.load(mask_path).get_fdata() # Convert IRM format to numpy 3D tensor
+
+stripper = Brook() # Create an instance of brook
+
+example_slice = data[120,:,:] # Get on slice of tensor 
+
+brain,mask = stripper.strip(example_slice,pre_process=False,post_process=False) # Extract brain from the skull
 ```
