@@ -67,8 +67,9 @@ class Brook:
 
         H, W = x.shape
         cp = x.copy()
-        ref = cv2.resize(REF, dsize=(H, W), interpolation=cv2.INTER_CUBIC)
-        x = match_histograms(x, ref, multichannel=False)
+        if pre_process:
+            ref = cv2.resize(REF, dsize=(H, W), interpolation=cv2.INTER_CUBIC)
+            x = match_histograms(x, ref, multichannel=False)
         if x.max() > 1:
             x = x / x.max()
         x = torch.tensor(x, dtype=torch.float32).unsqueeze(0).unsqueeze(0)
