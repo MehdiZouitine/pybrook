@@ -30,6 +30,7 @@ And each model has a different encoder.
 <p align="center">
   <img height="600px" src="https://github.com/MehdiZouitine/pybrook/blob/main/image/stack_model.png?raw=true" alt="stack">
 </p>
+
 ## Pre-processing and post processing
 
 MRI segmentation may require pre-processing and post-processing. Indeed, the variability between the measuring devices and the type of MRI can lead to a huge variability in the pixel distribution. This results in poor segmentation (artefacts, holes). So in some cases it is advisable to use this preprocessing.
@@ -98,3 +99,4 @@ example_slice = data[120,:,:] # Get on slice of tensor
 
 brain,mask = stripper.strip(example_slice,pre_process=False,post_process=False) # Extract brain from the skull
 ```
+*More about how to use it in src/how_to_use.py*
